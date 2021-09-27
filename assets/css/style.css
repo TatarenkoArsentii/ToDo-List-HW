@@ -5,11 +5,6 @@
   font-size: 18px;
 }
 
-* ::before {
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -43,24 +38,12 @@
   margin-right: 10px;
 }
 
-.container .toDo_list_form_container #todo_list_submit {
-  all: inherit;
-  width: 52px;
+.container .toDo_list_form_container #todo_list_form_submit {
+  width: 50px;
+  height: 50px;
+  border: none;
   cursor: pointer;
-  margin-top: 0;
-  padding: 0;
-}
-
-.container .toDo_list_form_container #todo_list_submit::before {
-  content: "";
   background: url("../img/add.png") center center/cover no-repeat;
-  width: 53px;
-  height: 53px;
-}
-* .container .toDo_list_form_container #filter {
-  margin-left: 10px;
-  outline: none;
-  height: 30px;
 }
 
 .container .toDo_list_container {
@@ -74,7 +57,7 @@
 .container .toDo_list_container .toDo_list {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 0 20px;
 }
 
 .container .toDo_list_container .toDo_list_items {
@@ -86,36 +69,58 @@
   padding: 10px;
 }
 
-.container .toDo_list_container .toDo_list_items + .toDo_list_items {
-  margin-top: 10px;
-}
-
 .container .toDo_list_container .toDo_list_items .time {
-  width: 20%;
+  flex: 1;
   text-align: center;
 }
 
 .container .toDo_list_container .toDo_list_items .todo_list_item_descr {
-  flex: 1;
-  margin-left: 10px;
+  flex: 5;
+  margin-left: 20px;
 }
 
 .container .toDo_list_container .toDo_list_items #todo_list_item_delete {
-  all: inherit;
   cursor: pointer;
-  width: 70px;
-  height: 55px;
+  width: 30px;
+  height: 30px;
   border: none;
   padding: 10px;
   margin-top: 0;
+  background: url("../img/delete.png") center center/cover no-repeat;
 }
 
-.container
-  .toDo_list_container
-  .toDo_list_items
-  #todo_list_item_delete::before {
-  content: "";
-  background: url("../img/delete.png") center center/cover no-repeat;
-  width: 70px;
-  height: 70px;
+.container .toDo_list_container .toDo_list_items input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.container #save {
+  border: none;
+  background-color: green;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.container #clear {
+  border: none;
+  background-color: red;
+  padding: 10px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.container .buttons_container {
+  margin-top: 20px;
+}
+.container #delete_checked {
+  background-color: coral;
+  border: none;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.done {
+  opacity: 0.3;
+  text-decoration: line-through;
 }
