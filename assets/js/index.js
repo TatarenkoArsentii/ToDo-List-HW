@@ -8,11 +8,13 @@ const TODO_LIST = "TODO_LIST";
 const saveBtn = document.querySelector("#save");
 const clearBtn = document.querySelector("#clear");
 const deleteChckBtn = document.querySelector("#delete_checked");
+const filterOption = document.querySelector("#filter");
 
 todoListFormSubmitBtn.addEventListener("click", createToDoList);
 saveBtn.addEventListener("click", saveToDoList);
 clearBtn.addEventListener("click", clearToDoList);
 deleteChckBtn.addEventListener("click", deleteChecked);
+filterOption.addEventListener("change", filter);
 
 function createToDoList() {
   event.preventDefault();
@@ -38,6 +40,31 @@ function createToDoList() {
   toDoListUl.append(listItems);
   todoListFormInput.value = "";
   deleteToDoElements();
+}
+
+function filter() {
+  const items = toDoListUl.childNodes;
+  items.forEach((el) => {
+    switch (this.value) {
+      case "all":
+        el.style.display = "flex";
+        break;
+      case "done":
+        if (el.classList.contains("done")) {
+          el.style.display = "flex";
+        } else {
+          el.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (el.classList.contains("done")) {
+          el.style.display = "none";
+        } else {
+          el.style.display = "flex";
+        }
+        break;
+    }
+  });
 }
 
 function getTime() {
